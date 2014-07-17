@@ -10,7 +10,8 @@
 	<view-state id="takePayment" model="flowScope.paymentDetails">
 		<on-entry>
 			<set name="flowScope.paymentDetails"
-				value="com.maocaiwu.springwebflow.pizza.domain.Pizza.PaymentType.CASH" />
+				value="com.maocaiwu.springwebflow.pizza.domain.Pizza.PaymentDetails" />
+			<evaluate result="viewScope.paymentTypeList" expression="T(com.maocaiwu.springwebflow.pizza.domain.PaymentType).asList"/>
 		</on-entry>
 					
 		<transition on="paymentSubmitted" to="verifyPayment"/>

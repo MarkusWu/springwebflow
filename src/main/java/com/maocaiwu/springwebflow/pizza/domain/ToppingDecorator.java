@@ -17,4 +17,9 @@ public abstract class ToppingDecorator extends Pizza {
 	public String getShortName(){
 		return  pizza.getShortName() + ", " + getShortName();
 	}
+	
+	public void addedTo(Pizza pizza){
+		this.pizza = pizza;
+	}
+	
 }

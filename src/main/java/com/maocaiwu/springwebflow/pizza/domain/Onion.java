@@ -6,7 +6,12 @@ public class Onion extends ToppingDecorator{
 	String shortName = "red onion";
 	Double cost = 0.5;
 	
+	public Onion(){
+		
+	}
+	
 	public Onion(Pizza pizza){
 		this.pizza = pizza;
 	}
+	
 }

@@ -13,9 +13,9 @@
 		<transition on="cancel" to="cancel"/>
 	</view-state>
 	
-	<view-state id="createPizza" model="flowScope.pizza">
+	<view-state id="createPizza" model="flowScope.customPizza">
 		<on-entry>
-			<set name="flowScope.pizza" value="new com.maocaiwu.springwebflow.pizza.domain.Pizza()"/>
+			<set name="flowScope.customPizza" value="new com.maocaiwu.springwebflow.pizza.domain.CustomPizza()"/>
 			<evaluate result="viewScope.toppingsList" expression="T(com.maocaiwu.sprignwebflow.pizza.domain.Topping).asList()"/>
 		</on-entry>
 		<transition on="addPizza" to="showOrder">

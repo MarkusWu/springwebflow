@@ -17,7 +17,7 @@
 		<br/>
 		<br/>
 		<b>Toppings:</b>
-		<sf:checkboxes path="toppings" items="${toppingsList }" delimiter="&lt;br/&gt;"/><br/><br/>
+		<sf:checkboxes path="toppings" items="${toppingsList}" delimiter="&lt;br/&gt;"/><br/><br/>
 		<input type="submit" class="button" name="_eventId_addPizza" value="Continue"/>
 		<input type="submit" class="button" name="_eventId_cancel" value="Cancel"/>
 	</sf:form>
