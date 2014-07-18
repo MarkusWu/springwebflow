@@ -5,13 +5,14 @@
         http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd"
         start-state="takePayment">
 
-	<input name="order" required="true"/>
+	<input name="order" required="true"/>	
 	
 	<view-state id="takePayment" model="flowScope.paymentDetails">
 		<on-entry>
 			<set name="flowScope.paymentDetails"
 				value="com.maocaiwu.springwebflow.pizza.domain.Pizza.PaymentDetails" />
-			<evaluate result="viewScope.paymentTypeList" expression="T(com.maocaiwu.springwebflow.pizza.domain.PaymentType).asList"/>
+			<evaluate result="viewScope.paymentTypesList" expression="T(com.maocaiwu.springwebflow.pizza.domain.PaymentType).asList()"/>
+			<evaluate result="viewScope.totalCost" expression="pizzaFlowService.calculateCost(order)"/>
 		</on-entry>
 					
 		<transition on="paymentSubmitted" to="verifyPayment"/>
@@ -19,7 +20,7 @@
 	</view-state>
 	
 	<action-state id="verifyPayment">
-		<evaluate result="order.payment" expression=
+		<evaluate result="order.paymentDetails" expression=
 			"pizzaFlowService.verifyPayment(flowScope.paymentDetails)" />
 		<transition to="paymentTaken"/>
 	</action-state>

@@ -10,7 +10,7 @@ public class Order implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	Customer customer;
-	PaymentType paymentType;
+	PaymentDetails paymentDetails;
 	List<Pizza> pizzas;
 	
 	public Customer getCustomer(){
@@ -21,13 +21,13 @@ public class Order implements Serializable{
 		this.customer = customer;
 	}
 	
-	public PaymentType getPaymentType() {
-		return paymentType;
+	public PaymentDetails getPaymentDetails() {
+		return paymentDetails;
 	}
 
 
-	public void setPaymentType(PaymentType paymentType) {
-		this.paymentType = paymentType;
+	public void setPaymentDetails(PaymentDetails paymentDetails) {
+		this.paymentDetails = paymentDetails;
 	}
 	
 	public void addPizza(Pizza pizza){

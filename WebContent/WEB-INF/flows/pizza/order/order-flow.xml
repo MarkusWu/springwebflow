@@ -7,6 +7,8 @@
 	
 	<input name="order" required="true"/>
 	
+
+	
 	<view-state id="showOrder">
 		<transition on="createPizza" to="createPizza"/>
 		<transition on="checkout" to="orderCreated"/>
@@ -16,9 +18,13 @@
 	<view-state id="createPizza" model="flowScope.customPizza">
 		<on-entry>
 			<set name="flowScope.customPizza" value="new com.maocaiwu.springwebflow.pizza.domain.CustomPizza()"/>
-			<evaluate result="viewScope.toppingsList" expression="T(com.maocaiwu.sprignwebflow.pizza.domain.Topping).asList()"/>
+			<evaluate result="viewScope.pizzaSizesList" expression="T(com.maocaiwu.springwebflow.pizza.domain.PizzaSize).asList()"/>
+			<evaluate result="viewScope.pizzasList" expression="pizzaFlowServie.pizzasList()"/>
+			<evaluate result="viewScope.toppingsList" expression="pizzaFlowService.toppingsList()"/>
 		</on-entry>
 		<transition on="addPizza" to="showOrder">
+			<set name="flowScope.pizza" value="new com.maocaiwu.springwebflow.pizza.domain.Pizza()"/>
+			<evaluate result="flowScope.pizza" expression="pizzaFlowService.makePizza(flowScope.customPizza)"/>
 			<evaluate expression="order.addPizza(flowScope.pizza)"/>
 		</transition>
 		<transition on="cancel" to="showOrder"/>

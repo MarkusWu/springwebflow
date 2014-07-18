@@ -10,13 +10,16 @@
 </head>
 <body>
 	<h2>Create Pizza</h2>
-	<sf:form commandName="pizza">
+	<sf:form commandName="customPizza">
 		<input type="hidden" name="_flowExecutionKey" value="${flowExecutionKey }"/>
 		
-		<b>Size: </b><br/>
+		<b>Select one pizza: </b><br/>
+		<sf:select path="pizzaName" items="${pizzasList}"/>
 		<br/>
+		<b>Select your pizza size</b>
+		<sf:select path="pizzSize" items="${pizzaSizesList}"/>
 		<br/>
-		<b>Toppings:</b>
+		<b>Choose any toppings you want:</b>
 		<sf:checkboxes path="toppings" items="${toppingsList}" delimiter="&lt;br/&gt;"/><br/><br/>
 		<input type="submit" class="button" name="_eventId_addPizza" value="Continue"/>
 		<input type="submit" class="button" name="_eventId_cancel" value="Cancel"/>
