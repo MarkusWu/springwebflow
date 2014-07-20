@@ -13,7 +13,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	
 	<!-- Automatically creates beans of Class annotated with @Controller, Component, and so on  -->
-	<context:component-scan base-package="wu.maocai.springmvc.controller"/>
+	<context:component-scan base-package="com.maocaiwu.springwebflow.pizza.controller"/>
 	
 	<!--  Set up handlers for static content-->
 	<mvc:resources location="/resources/" mapping="/resources/**"/>
