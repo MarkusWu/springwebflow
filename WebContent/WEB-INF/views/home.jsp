@@ -23,5 +23,7 @@
 		<input type="submit" name="_eventId_identifyCustomer"
 			value="Order Pizza" />
 	</sf:form>
+	
+	<a href="_flowExecutionKey=${flowExecutionKey}&_eventId=IdentifyCustomer">Order Pizza</a>
 </body>
 </html>
